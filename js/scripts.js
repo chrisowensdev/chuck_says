@@ -1,23 +1,33 @@
 'use-strict';
 
 const chuckSays = document.getElementById('chuckSays');
+const refreshQuote = document.getElementById('refreshQuote');
+const submitFormButton = document.getElementById('submitForm');
 
-function get() {
-    // Step 1: Fetch the data
-    return fetch('https://api.chucknorris.io/jokes/random?category=dev')
-        // Step 2: Run the json() method from the Response
+const defaultCategory = "dev";
+
+
+const getQuote = (category) => {
+    get(`https://api.chucknorris.io/jokes/random?category=${category}`)
         .then(function (response) {
-            return response.json();
+            chuckSays.innerHTML = response.value;
         })
-        // Step 3: Return the data from the response.json metho
-        .then(function (data) {
-            return data;
-        })
-
 }
 
+refreshQuote.addEventListener('click', function (e) {
+    e.preventDefault();
+    getQuote(defaultCategory);
+});
+
+submitFormButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    const userInput = document.getElementById('categoryInput');
+    const category = userInput.value;
+    getQuote(category);
+});
+
+
+
 (function () {
-    get().then(function (response) {
-        chuckSays.innerHTML = response.value;
-    })
+    getQuote(defaultCategory);
 })();

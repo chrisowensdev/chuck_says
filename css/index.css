@@ -14,3 +14,14 @@ body {
     padding: 0;
     text-align: center
 }
+
+/* form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+} */
+
+button {
+    padding: 5px;
+    margin: 10px;
+}
