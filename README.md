@@ -1,3 +1,3 @@
 # Chuck Says
 
-API for random Chuck Noriss quote
+API for random Chuck Norris quote
