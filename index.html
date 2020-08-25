@@ -9,20 +9,31 @@
 </head>
 
 <body>
+    <div class="wrapper">
+        <div class="img-wrapper">
+            <img
+                src="https://rfdtv.images.worldnow.com/images/19249645_G.jpeg?auto=webp&disable=upscale&height=560&fit=bounds&lastEditedDate=1583851067000" />
+        </div>
+        <div class="action">
+            <button type="button" id="refreshQuote">Refresh Quote</button>
+            <form id="getChuckQuotes">
+                <label>
+                    Choose a Category
+                    <select name="categoryInput" id="categoryInput">
+                    </select>
+                </label>
 
-    <p id="chuckSays">Chuck Says...</p>
-    <button type="button" id="refreshQuote">Refresh Quote</button>
-    <form id="getChuckQuotes">
-        <label>
-            Choose a Category
-            <select name="categoryInput" id="categoryInput">
-            </select>
-        </label>
+                <button type="submit" id="submitForm">Get a Quote</button>
+            </form>
+        </div>
 
-        <button type="submit" id="submitForm">Get a Quote</button>
-    </form>
-
-
+    </div>
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <span id="closeModal" class="modal-close">X</span>
+            <p id="chuckSays">Chuck Says...</p>
+        </div>
+    </div>
 </body>
 <script src="js/get.js"></script>
 <script src="js/scripts.js"></script>
