@@ -3,9 +3,9 @@
 const chuckSays = document.getElementById('chuckSays');
 const refreshQuote = document.getElementById('refreshQuote');
 const submitFormButton = document.getElementById('submitForm');
-const defaultCategory = "dev";
+let category = "dev";
 
-const getQuote = (category) => {
+const getQuote = () => {
     const url = `https://api.chucknorris.io/jokes/random?category=${category}`
     get(url).then(fetchResponse => {
         chuckSays.innerHTML = fetchResponse.value;
@@ -29,19 +29,23 @@ const getCategories = () => {
 
 refreshQuote.addEventListener('click', (e) => {
     e.preventDefault();
-    getQuote(defaultCategory);
+    getQuote();
 });
 
-submitFormButton.addEventListener('click', (e) => {
+// submitFormButton.addEventListener('click', (e) => {
+
+// });
+
+const getChuckQuotes = document.getElementById('getChuckQuotes');
+getChuckQuotes.addEventListener('submit', e => {
     e.preventDefault();
     const userInput = document.getElementById('categoryInput');
-    const category = userInput.value;
-    getQuote(category);
+    category = userInput.value;
+    getQuote();
 });
-
 
 
 (function () {
     getCategories();
-    getQuote(defaultCategory);
+    getQuote();
 })();
